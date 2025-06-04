@@ -107,7 +107,7 @@ class Predictor(BasePredictor):
             description="Load LoRA weights (tar.gz URL)"
         ),
         api_json: CogPath = Input(
-            default=CogPath("workflow_api/face-match-4-5-api.json"),
+            default=CogPath("workflow_api/face-match-4-6-api.json"),
             description="CogPath to ComfyUI workflow JSON"
         ),
         image1: CogPath = Input(description="First input image"),
