@@ -541,7 +541,7 @@
   },
   "155": {
     "inputs": {
-      "image": "kj1 (1).jpg",
+      "image": "kj1.jpg",
       "upload": "image"
     },
     "class_type": "LoadImage",
@@ -551,7 +551,7 @@
   },
   "156": {
     "inputs": {
-      "image": "kj1.jpg",
+      "image": "kj2.jpg",
       "upload": "image"
     },
     "class_type": "LoadImage",
