@@ -211,7 +211,36 @@ MODELS = [
     "url": "https://huggingface.co/tianweiy/DMD2/resolve/main/dmd2_sdxl_4step_lora_fp16.safetensors",
     "filename": "dmd2_sdxl_4step_lora_fp16.safetensors",
     "subdir": "loras"
-  }
+  },
+      #  dfixmodels
+    {
+    "url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinT_OGC.cfg.py",
+    "filename": "GroundingDINO_SwinT_OGC.cfg.py",
+    "subdir": "grounding-dino"
+  },
+
+  {
+    "url": " https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swint_ogc.pth",
+    "filename": "groundingdino_swint_ogc.pth",
+    "subdir": "grounding-dino"
+  },
+  {
+    "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/beru_custom_2.safetensors",
+    "filename": "beru_custom_2.safetensors",
+    "subdir": "checkpoints"
+  },
+     
+  {
+    "url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpaint_head.pth",
+    "filename": "fooocus_inpaint_head.pth",
+    "subdir": "inpaint"
+  },
+
+  {
+    "url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch",
+    "filename": "inpaint_v26.fooocus.patch",
+    "subdir": "inpaint"
+  },
   #     {
   #      "url":  "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors",
   #      "filename": "flux1-dev.safetensors",

@@ -112,6 +112,14 @@ def bypass_upscale(workflow: dict) -> dict:
     # Create a new dict without those keys
     return {nid: node for nid, node in workflow.items() if nid not in bypass_list}
 
+def bypass_dfix(workflow: dict) -> dict:
+    """
+    Remove any nodes whose IDs are listed in the internal bypass_list.
+    """
+    bypass_list = ["307","308","309","310","311","312","313","314","315","316","317","318","320","321","322","323","324","325","326","327","328","329","330","332","333","334","337"]
+    # Create a new dict without those keys
+    return {nid: node for nid, node in workflow.items() if nid not in bypass_list}
+
 def queue_workflow(workflow, host, outputs):
     url = f"{host.rstrip('/')}/prompt"
     payload = {'prompt': workflow, 'outputs': outputs}

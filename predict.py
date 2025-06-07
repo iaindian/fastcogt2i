@@ -28,7 +28,10 @@ from comfyrunbatch import (
     queue_workflow,
     await_completion,
     download_outputs,
+    bypass_dfix
 )
+
+default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-7-api.json").resolve()
 
 class Predictor(BasePredictor):
     def setup(self):
@@ -106,15 +109,12 @@ class Predictor(BasePredictor):
             default="",
             description="Load LoRA weights (tar.gz URL)"
         ),
-        api_json: CogPath = Input(
-            default=CogPath("workflow_api/face-match-4-6-api.json"),
-            description="CogPath to ComfyUI workflow JSON"
-        ),
         image1: CogPath = Input(description="First input image"),
         image2: CogPath = Input(description="Second input image"),
         image3: CogPath = Input(description="Third input image"),
         bypass_reactor: bool = Input(default=False, description="Skip ReActor nodes"),
         bypass_upscale_node: bool = Input(default=False, description="Skip upscaling/TTP nodes"),
+        bypass_dfix_node: bool = Input(default=True, description="Skip Dfix nodes"),
         poll_interval: float = Input(default=1.0, description="Seconds between polls"),
         timeout: float = Input(default=300.0, description="Completion timeout (s)"),
         log_level: str = Input(default="INFO", description="Logging level"),
@@ -158,7 +158,13 @@ class Predictor(BasePredictor):
         upload_images(input_images, str(temp_dir), host)
 
         # Load workflow
-        wf_base = load_workflow(str(api_json))
+        wf_path = default_workflow_path
+        logging.info(f"Using default workflow file: {wf_path}")
+        logging.debug(f"Exists? {wf_path.exists()}, CWD={Path().resolve()}")
+        if not wf_path.is_file():
+            logging.error(f"Default workflow file not found: {wf_path}")
+            raise FileNotFoundError(f"Default workflow file not found: {wf_path}")
+        wf_base = load_workflow(wf_path)
         results: List[Union[str, dict]] = []
 
         for entry in entries:
@@ -192,6 +198,8 @@ class Predictor(BasePredictor):
             if bypass_upscale_node:
                 wf = bypass_upscale(wf)
                 out_node = "230"
+            if bypass_dfix_node:
+                wf = bypass_dfix(wf)
             else:
                 out_node = "230"
 

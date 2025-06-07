@@ -158,6 +158,13 @@ if __name__ == "__main__":
     "https://github.com/TTPlanetPig/Comfyui_TTP_Toolset",
     "https://github.com/yolain/ComfyUI-Easy-Use",
     "https://github.com/city96/ComfyUI-GGUF",
+    "https://github.com/storyicon/comfyui_segment_anything",
+    "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
+    "https://github.com/WASasquatch/was-node-suite-comfyui",
+    "https://github.com/kijai/ComfyUI-KJNodes",
+    "https://github.com/Acly/comfyui-inpaint-nodes",
+    "https://github.com/cubiq/ComfyUI_essentials",
+    "https://github.com/pamparamm/sd-perturbed-attention"
         # Add more plugin repositories here
     ]
 
