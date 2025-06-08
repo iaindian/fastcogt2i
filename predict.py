@@ -200,6 +200,7 @@ class Predictor(BasePredictor):
                 out_node = "230"
             if bypass_dfix_node:
                 wf = bypass_dfix(wf)
+                out_node = "230"
             else:
                 out_node = "230"
 

@@ -30,27 +30,47 @@ def run_command(cmd, cwd: Path = None, shell: bool = False, input_text: str = No
     logger.info(f"$ {cmd_str}")
     subprocess.run(cmd, cwd=cwd, shell=shell, check=True, input=input_text, text=True)
 
+# Detect OS
+def is_macos() -> bool:
+    return sys.platform == "darwin" or platform.system() == "Darwin"
 
 def install_torch_cuda(cuda_version: str = "cu118"):
-    # """
-    # Uninstall existing torch packages and install CUDA-enabled builds non-interactively.
-    # """
+    """
+    Install PyTorch, torchvision, torchaudio.
+    On macOS installs CPU-only builds; on other platforms installs CUDA-enabled builds.
+    """
     packages = ["torch", "torchvision", "torchaudio"]
 
-    # # Uninstall existing
-    # logger.info("Uninstalling existing torch packages (if any)")
-    # run_command([sys.executable, "-m", "pip", "uninstall", "-y"] + packages)
+    if is_macos():
+        logger.info("macOS detected: installing CPU-only PyTorch build")
+        run_command([sys.executable, "-m", "pip", "install"] + packages)
+    else:
+        # CUDA-enabled install
+        index_url = f"https://download.pytorch.org/whl/{cuda_version}"
+        logger.info(f"Installing torch packages with CUDA {cuda_version} (auto-confirm)")
+        cmd = [sys.executable, "-m", "pip", "install"] + packages + ["--index-url", index_url]
+        run_command(cmd, input_text="Y\n")
 
-    # # Clear cache
-    # logger.info("Clearing pip cache to avoid stale wheels")
-    # run_command([sys.executable, "-m", "pip", "cache", "purge"])
+# def install_torch_cuda(cuda_version: str = "cu118"):
+#     # """
+#     # Uninstall existing torch packages and install CUDA-enabled builds non-interactively.
+#     # """
+#     packages = ["torch", "torchvision", "torchaudio"]
 
-    # Install with forced confirmation (Y) in case of custom wrappers
-    installer_cmd = [
-        sys.executable, "-m", "pip", "install"
-    ] + packages + ["--index-url", f"https://download.pytorch.org/whl/{cuda_version}"]
-    logger.info(f"Installing torch packages with CUDA {cuda_version} (auto-confirm)")
-    run_command(installer_cmd, input_text="Y\n")
+#     # # Uninstall existing
+#     # logger.info("Uninstalling existing torch packages (if any)")
+#     # run_command([sys.executable, "-m", "pip", "uninstall", "-y"] + packages)
+
+#     # # Clear cache
+#     # logger.info("Clearing pip cache to avoid stale wheels")
+#     # run_command([sys.executable, "-m", "pip", "cache", "purge"])
+
+#     # Install with forced confirmation (Y) in case of custom wrappers
+#     installer_cmd = [
+#         sys.executable, "-m", "pip", "install"
+#     ] + packages + ["--index-url", f"https://download.pytorch.org/whl/{cuda_version}"]
+#     logger.info(f"Installing torch packages with CUDA {cuda_version} (auto-confirm)")
+#     run_command(installer_cmd, input_text="Y\n")
 
 
 def clone_repo(repo_url: str, target_dir: Path) -> bool:

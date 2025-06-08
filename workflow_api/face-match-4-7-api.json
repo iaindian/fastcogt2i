@@ -318,11 +318,11 @@
       "model_weight_1": 0.13,
       "clip_weight_1": 1,
       "switch_2": "On",
-      "lora_name_2": "xl\\hand 5.5.safetensors",
+      "lora_name_2": "hand 5.5.safetensors",
       "model_weight_2": 0.89,
       "clip_weight_2": 1,
       "switch_3": "On",
-      "lora_name_3": "xl\\detailed_notrigger.safetensors",
+      "lora_name_3": "detailed_notrigger.safetensors",
       "model_weight_3": 0.41000000000000003,
       "clip_weight_3": 1
     },
@@ -763,11 +763,11 @@
       "model_weight_1": 0.1,
       "clip_weight_1": 1,
       "switch_2": "On",
-      "lora_name_2": "xl\\LVL.safetensors",
+      "lora_name_2": "LVL.safetensors",
       "model_weight_2": 1,
       "clip_weight_2": 1,
       "switch_3": "On",
-      "lora_name_3": "xl\\DetailedEyes_V3.safetensors",
+      "lora_name_3": "DetailedEyes_V3.safetensors",
       "model_weight_3": 0.91,
       "clip_weight_3": 1,
       "lora_stack": [
@@ -883,7 +883,7 @@
   "275": {
     "inputs": {
       "switch_1": "On",
-      "lora_name_1": "common\\dmd2_sdxl_4step_lora_fp16.safetensors",
+      "lora_name_1": "dmd2_sdxl_4step_lora_fp16.safetensors",
       "model_weight_1": 1,
       "clip_weight_1": 1,
       "switch_2": "Off",
