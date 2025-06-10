@@ -14,6 +14,7 @@ import tarfile
 from PIL import Image
 from pathlib import Path
 from urllib.parse import urlparse
+import os
 import boto3
 
 from comfyrunbatch import (
@@ -28,7 +29,8 @@ from comfyrunbatch import (
     queue_workflow,
     await_completion,
     download_outputs,
-    bypass_dfix
+    bypass_dfix,
+    clear_and_interrupt
 )
 
 default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-7-api.json").resolve()
@@ -114,7 +116,7 @@ class Predictor(BasePredictor):
         image3: CogPath = Input(description="Third input image"),
         bypass_reactor: bool = Input(default=False, description="Skip ReActor nodes"),
         bypass_upscale_node: bool = Input(default=False, description="Skip upscaling/TTP nodes"),
-        bypass_dfix_node: bool = Input(default=True, description="Skip Dfix nodes"),
+        bypass_dfix_node: bool = Input(default=True, description="Skip Dfix nodes by default"),
         poll_interval: float = Input(default=1.0, description="Seconds between polls"),
         timeout: float = Input(default=300.0, description="Completion timeout (s)"),
         log_level: str = Input(default="INFO", description="Logging level"),
@@ -129,6 +131,11 @@ class Predictor(BasePredictor):
             format="%(asctime)s %(levelname)s %(message)s"
         )
         host = "http://127.0.0.1:8188"
+        clear_and_interrupt(host)
+        for directory in ["ComfyUI/input", "ComfyUI/output", "input_tmp"]:
+            if os.path.exists(directory):
+                shutil.rmtree(directory)
+            os.makedirs(directory)
 
         # Load LoRA weights if provided
         if weights.strip():

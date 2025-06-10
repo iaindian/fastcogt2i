@@ -158,59 +158,21 @@ MODELS = [
    },
   # loras
   {
-       "url":  "https://huggingface.co/jagat334433/beru_custom/resolve/main/CinematicStyle_v1.safetensors",
-       "filename": "CinematicStyle_v1.safetensors",
-       "subdir":   "loras",
-   },
-   {
-       "url":  "https://huggingface.co/jagat334433/beru_custom/resolve/main/DetailedEyes_V3.safetensors",
-       "filename": "DetailedEyes_V3.safetensors",
-       "subdir":   "loras",
-   },
-    {
-       "url":  "https://huggingface.co/jagat334433/beru_custom/resolve/main/LVL.safetensors",
-       "filename": "LVL.safetensors",
-       "subdir":   "loras",
-   },
-    {
-       "url":  "https://huggingface.co/jagat334433/beru_custom/resolve/main/add-detail-xl.safetensors",
-       "filename": "add-detail-xl.safetensors",
-       "subdir":   "loras",
-   },
-     {
-       "url":  "https://huggingface.co/jagat334433/beru_custom/resolve/main/dark.safetensors",
-       "filename": "dark.safetensors",
-       "subdir":   "loras",
-   },
-      {
-       "url":  "https://huggingface.co/jagat334433/beru_custom/resolve/main/hand%205.5.safetensors",
-       "filename": "hand 5.5.safetensors",
-       "subdir":   "loras",
-   },
-      {
-       "url":  "https://huggingface.co/jagat334433/beru_custom/resolve/main/asian.safetensors",
-       "filename": "asian.safetensors",
-       "subdir":   "loras",
-   },
-      {
-       "url":  "https://huggingface.co/jagat334433/beru_custom/resolve/main/detailed_notrigger.safetensors",
-       "filename": "detailed_notrigger.safetensors",
-       "subdir":   "loras",
-   },
-       {
-    "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/beru_custom_2.safetensors",
+     "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/beru_custom_2.safetensors",
     "filename": "beru_custom_2.safetensors",
+    "subdir": "loras"
+    },
+ 
+   
+       {
+    "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/beru_custom_merge.safetensors",
+    "filename": "beru_custom_merge.safetensors",
     "subdir": "checkpoints"
   },
        {
     "url": "https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q4_K_S.gguf",
     "filename": "flux1-dev-Q4_K_S.gguf",
     "subdir": "unet"
-  },
-       {
-    "url": "https://huggingface.co/tianweiy/DMD2/resolve/main/dmd2_sdxl_4step_lora_fp16.safetensors",
-    "filename": "dmd2_sdxl_4step_lora_fp16.safetensors",
-    "subdir": "loras"
   },
       #  dfixmodels
     {

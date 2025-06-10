@@ -102,7 +102,19 @@ def strip_ttp_nodes(workflow, cutoff_node="230"):
     logging.info(f"Removed TTP nodes downstream of {cutoff_node}: {sorted(to_remove)}")
     return workflow
 
+def clear_and_interrupt(host: str):
+    """
+    Tell ComfyUI to drop any pending jobs and kill any in-flight run.
+    """
+    # 1) clear the queue
+    resp = requests.post(f"{host.rstrip('/')}/queue", json={"clear": True})
+    resp.raise_for_status()
+    logging.info("Cleared ComfyUI queue")
 
+    # 2) interrupt any running workflow
+    resp = requests.post(f"{host.rstrip('/')}/interrupt")
+    resp.raise_for_status()
+    logging.info("Interrupted ComfyUI execution")
 
 def bypass_upscale(workflow: dict) -> dict:
     """

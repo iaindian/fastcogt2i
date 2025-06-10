@@ -168,7 +168,6 @@ if __name__ == "__main__":
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts",
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes",
     "https://github.com/Jonseed/ComfyUI-Detail-Daemon",
-    "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
     "https://github.com/cubiq/ComfyUI_essentials",
     "https://github.com/kijai/ComfyUI-KJNodes",
     "https://github.com/comfyanonymous/ComfyUI_experiments",
