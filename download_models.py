@@ -58,11 +58,6 @@ MODELS = [
   },
 
   {
-    "url": "https://huggingface.co/gemasai/4x_NMKD-Superscale-SP_178000_G/resolve/main/4x_NMKD-Superscale-SP_178000_G.pth?download=true",
-    "filename": "4x_NMKD-Superscale-SP_178000_G.pth",
-    "subdir": "upscale_models"
-  },
-  {
     "url": "https://huggingface.co/gemasai/4x_NMKD-Siax_200k/resolve/main/4x_NMKD-Siax_200k.pth",
     "filename": "4x_NMKD-Siax_200k.pth",
     "subdir": "upscale_models"
