@@ -186,11 +186,6 @@ MODELS = [
     "filename": "groundingdino_swint_ogc.pth",
     "subdir": "grounding-dino"
   },
-  {
-    "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/beru_custom_2.safetensors",
-    "filename": "beru_custom_2.safetensors",
-    "subdir": "checkpoints"
-  },
      
   {
     "url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpaint_head.pth",
