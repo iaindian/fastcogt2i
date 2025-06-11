@@ -157,6 +157,16 @@ MODELS = [
     "filename": "FameGrid_Bold_SDXL_V1.safetensors",
     "subdir": "loras"
     },
+  {
+     "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/ae.safetensors",
+    "filename": "ae.safetensors",
+    "subdir": "loras"
+    },
+  {
+     "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/hand%205.5.safetensors",
+    "filename": "hand5.5.safetensors",
+    "subdir": "loras"
+    },
  
    
        {
