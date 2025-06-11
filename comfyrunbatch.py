@@ -44,10 +44,10 @@ def inject_prompts_and_images(workflow, pos, neg, images):
     img_idx = 0
     for node_id, node in workflow.items():
         inputs = node.setdefault('inputs', {})
-        if node_id == "82":
-            inputs['wildcard_text'] = pos
-        elif node_id == "87":
-            inputs['wildcard_text'] = neg
+        if node_id == "351":
+            inputs['text'] = pos
+        elif node_id == "352":
+            inputs['text'] = neg
         elif node.get('class_type') == 'LoadImage' and img_idx < len(images):
             inputs['image'] = images[img_idx]
             logging.debug(f"→ LoadImage node {node_id}: path ← {images[img_idx]}")
