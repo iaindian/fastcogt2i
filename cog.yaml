@@ -162,6 +162,8 @@ build:
       - yarl
       - zipp
       - boto3
+      - addict
+      - yapf
 
   
 predict: "predict.py:Predictor"
