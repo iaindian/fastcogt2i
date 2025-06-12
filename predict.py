@@ -33,7 +33,7 @@ from comfyrunbatch import (
     clear_and_interrupt
 )
 
-default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-10-api.json").resolve()
+default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-11-api.json").resolve()
 
 class Predictor(BasePredictor):
     def setup(self):

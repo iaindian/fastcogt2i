@@ -44,11 +44,11 @@ def inject_prompts_and_images(workflow, pos, neg, images):
     img_idx = 0
     for node_id, node in workflow.items():
         inputs = node.setdefault('inputs', {})
-        if node_id == "351":
+        if node_id == "364":
             logging.info(f"using positive prompt: {pos}")
-            inputs['text'] = pos
-        elif node_id == "352":
-            inputs['text'] = neg
+            inputs['wildcard_text'] = pos
+        elif node_id == "366":
+            inputs['wildcard_text'] = neg
             logging.info(f"using negative prompt: {neg}")
         elif node.get('class_type') == 'LoadImage' and img_idx < len(images):
             inputs['image'] = images[img_idx]
@@ -181,8 +181,8 @@ def download_outputs(images, host, out_dir):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--api-json",    required=False,
-                   default="workflow_api/face-match-4-10-api.json",
-                   help="Path to ComfyUI workflow JSON (defaults to ./workflow_api/face-match-4-10-api.json)")
+                   default="workflow_api/face-match-4-11-api.json",
+                   help="Path to ComfyUI workflow JSON (defaults to ./workflow_api/face-match-4-11-api.json)")
     p.add_argument("--prompt-file", required=True,
                    help="JSON array of {id,positive,negative} objects")
     p.add_argument("--input-dir",   default="input",
