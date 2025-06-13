@@ -57,11 +57,6 @@ MODELS = [
     "subdir": "controlnet"
   },
 
-  {
-    "url": "https://huggingface.co/gemasai/4x_NMKD-Siax_200k/resolve/main/4x_NMKD-Siax_200k.pth",
-    "filename": "4x_NMKD-Siax_200k.pth",
-    "subdir": "upscale_models"
-  },
 
   {
     "url": "https://huggingface.co/Hishambarakat/checkpoint/resolve/main/ip-adapter_pulid_sdxl_fp16.safetensors",
