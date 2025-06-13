@@ -33,7 +33,7 @@ from comfyrunbatch import (
     clear_and_interrupt
 )
 
-default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-11-api.json").resolve()
+default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-12-api.json").resolve()
 
 class Predictor(BasePredictor):
     def setup(self):
@@ -91,9 +91,9 @@ class Predictor(BasePredictor):
             aws_access_key_id=access_key,
             aws_secret_access_key=secret_key
         )
-        fname = Path(file_path).name
-        bucket = self.get_bucket_name(fname, bucket_prefix)
+        fname = uuid.uuid4().hex
         obj = hashlib.md5(fname.encode()).hexdigest() + Path(file_path).suffix
+        bucket = self.get_bucket_name(obj, bucket_prefix)
         try:
             client.upload_file(file_path, bucket, obj, ExtraArgs={'ACL': 'public-read'})
             return f'https://{bucket}.{region}.cdn.digitaloceanspaces.com/{obj}'

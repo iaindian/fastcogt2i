@@ -1,0 +1,1189 @@
+{
+  "1": {
+    "inputs": {
+      "noise": [
+        "2",
+        0
+      ],
+      "guider": [
+        "3",
+        0
+      ],
+      "sampler": [
+        "93",
+        0
+      ],
+      "sigmas": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "2": {
+    "inputs": {
+      "noise_seed": 1066747274362826
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "inputseed1"
+    }
+  },
+  "3": {
+    "inputs": {
+      "cfg": 1.8,
+      "model": [
+        "105",
+        0
+      ],
+      "positive": [
+        "365",
+        0
+      ],
+      "negative": [
+        "367",
+        0
+      ]
+    },
+    "class_type": "CFGGuider",
+    "_meta": {
+      "title": "CFGGuider"
+    }
+  },
+  "4": {
+    "inputs": {
+      "sampler_name": "lcm"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "5": {
+    "inputs": {
+      "scheduler": "exponential",
+      "steps": 8,
+      "denoise": 1,
+      "model": [
+        "105",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "6": {
+    "inputs": {
+      "ckpt_name": "beru_custom_merge.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "1",
+        0
+      ],
+      "vae": [
+        "6",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "14": {
+    "inputs": {
+      "width": 896,
+      "height": 1152,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Latent Size"
+    }
+  },
+  "22": {
+    "inputs": {
+      "noise": [
+        "29",
+        0
+      ],
+      "guider": [
+        "36",
+        0
+      ],
+      "sampler": [
+        "30",
+        0
+      ],
+      "sigmas": [
+        "26",
+        0
+      ],
+      "latent_image": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "23": {
+    "inputs": {
+      "pixels": [
+        "8",
+        0
+      ],
+      "vae": [
+        "6",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "24": {
+    "inputs": {
+      "samples": [
+        "22",
+        0
+      ],
+      "vae": [
+        "6",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "26": {
+    "inputs": {
+      "scheduler": "exponential",
+      "steps": 6,
+      "denoise": 0.35000000000000003,
+      "model": [
+        "114",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "28": {
+    "inputs": {
+      "sampler_name": "lcm"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "29": {
+    "inputs": {
+      "noise_seed": 245310036687153
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "30": {
+    "inputs": {
+      "detail_amount": 0.39,
+      "start": 0.2,
+      "end": 0.8,
+      "bias": 0.5,
+      "exponent": 1,
+      "start_offset": 0,
+      "end_offset": 0,
+      "fade": 0,
+      "smooth": true,
+      "cfg_scale_override": 0,
+      "sampler": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "DetailDaemonSamplerNode",
+    "_meta": {
+      "title": "Detail Daemon Sampler"
+    }
+  },
+  "36": {
+    "inputs": {
+      "cfg": 1.8,
+      "model": [
+        "114",
+        0
+      ],
+      "positive": [
+        "107",
+        0
+      ],
+      "negative": [
+        "107",
+        1
+      ]
+    },
+    "class_type": "CFGGuider",
+    "_meta": {
+      "title": "CFGGuider"
+    }
+  },
+  "93": {
+    "inputs": {
+      "detail_amount": 0.13,
+      "start": 0.2,
+      "end": 0.7000000000000001,
+      "bias": 0.5,
+      "exponent": 1,
+      "start_offset": 0,
+      "end_offset": 0,
+      "fade": 0,
+      "smooth": true,
+      "cfg_scale_override": 0,
+      "sampler": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "DetailDaemonSamplerNode",
+    "_meta": {
+      "title": "Detail Daemon Sampler"
+    }
+  },
+  "105": {
+    "inputs": {
+      "tonemap_multiplier": 0.8500000000000002,
+      "rescale_multiplier": 0.8500000000000002,
+      "model": [
+        "350",
+        0
+      ]
+    },
+    "class_type": "TonemapNoiseWithRescaleCFG",
+    "_meta": {
+      "title": "TonemapNoiseWithRescaleCFG"
+    }
+  },
+  "106": {
+    "inputs": {
+      "control_net_name": "TTPLANET_Controlnet_Tile_realistic_v2_rank256.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "107": {
+    "inputs": {
+      "strength": 0.45,
+      "start_percent": 0.021000000000000005,
+      "end_percent": 1,
+      "positive": [
+        "109",
+        0
+      ],
+      "negative": [
+        "108",
+        0
+      ],
+      "control_net": [
+        "106",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ],
+      "vae": [
+        "6",
+        2
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "108": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "6",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "109": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "6",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "114": {
+    "inputs": {
+      "tonemap_multiplier": 0.7000000000000001,
+      "rescale_multiplier": 0.7000000000000001,
+      "model": [
+        "151",
+        0
+      ]
+    },
+    "class_type": "TonemapNoiseWithRescaleCFG",
+    "_meta": {
+      "title": "TonemapNoiseWithRescaleCFG"
+    }
+  },
+  "147": {
+    "inputs": {
+      "provider": "CPU"
+    },
+    "class_type": "PulidInsightFaceLoader",
+    "_meta": {
+      "title": "Load InsightFace (PuLID)"
+    }
+  },
+  "148": {
+    "inputs": {},
+    "class_type": "PulidEvaClipLoader",
+    "_meta": {
+      "title": "Load Eva Clip (PuLID)"
+    }
+  },
+  "149": {
+    "inputs": {
+      "pulid_file": "ip-adapter_pulid_sdxl_fp16.safetensors"
+    },
+    "class_type": "PulidModelLoader",
+    "_meta": {
+      "title": "Load PuLID Model"
+    }
+  },
+  "151": {
+    "inputs": {
+      "method": "fidelity",
+      "weight": 0.85,
+      "start_at": 0,
+      "end_at": 1,
+      "model": [
+        "6",
+        0
+      ],
+      "pulid": [
+        "149",
+        0
+      ],
+      "eva_clip": [
+        "148",
+        0
+      ],
+      "face_analysis": [
+        "147",
+        0
+      ],
+      "image": [
+        "154",
+        0
+      ]
+    },
+    "class_type": "ApplyPulid",
+    "_meta": {
+      "title": "Apply PuLID"
+    }
+  },
+  "152": {
+    "inputs": {
+      "method": "lanczos",
+      "image_1": [
+        "155",
+        0
+      ],
+      "image_2": [
+        "156",
+        0
+      ],
+      "image_3": [
+        "157",
+        0
+      ]
+    },
+    "class_type": "ImageBatchMultiple+",
+    "_meta": {
+      "title": "🔧 Images Batch Multiple"
+    }
+  },
+  "154": {
+    "inputs": {
+      "image1": [
+        "160",
+        0
+      ],
+      "image2": [
+        "155",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "155": {
+    "inputs": {
+      "image": "1.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "source1"
+    }
+  },
+  "156": {
+    "inputs": {
+      "image": "1.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "source2"
+    }
+  },
+  "157": {
+    "inputs": {
+      "image": "1.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "source3"
+    }
+  },
+  "160": {
+    "inputs": {
+      "seed": 78470827695833,
+      "repeat": 4,
+      "variation": 0.4,
+      "image": [
+        "152",
+        0
+      ]
+    },
+    "class_type": "ImageRandomTransform+",
+    "_meta": {
+      "title": "🔧 Image Random Transform"
+    }
+  },
+  "205": {
+    "inputs": {
+      "guidance": 6,
+      "conditioning": [
+        "218",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "206": {
+    "inputs": {
+      "model": [
+        "272",
+        0
+      ],
+      "conditioning": [
+        "205",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "207": {
+    "inputs": {
+      "noise": [
+        "217",
+        0
+      ],
+      "guider": [
+        "206",
+        0
+      ],
+      "sampler": [
+        "211",
+        0
+      ],
+      "sigmas": [
+        "215",
+        0
+      ],
+      "latent_image": [
+        "219",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "208": {
+    "inputs": {
+      "samples": [
+        "207",
+        0
+      ],
+      "vae": [
+        "213",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "211": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "212": {
+    "inputs": {
+      "max_shift": 1.06,
+      "base_shift": 0,
+      "width": 1024,
+      "height": 1024,
+      "model": [
+        "272",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "213": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "215": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": 4,
+      "denoise": 0.1,
+      "model": [
+        "212",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "216": {
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "217": {
+    "inputs": {
+      "noise_seed": 34119611948774
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "218": {
+    "inputs": {
+      "text": "detailed image, hyperrealism ,soft light, real skin, detailed eyes, detailed face, skin pores",
+      "clip": [
+        "216",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "219": {
+    "inputs": {
+      "pixels": [
+        "271",
+        0
+      ],
+      "vae": [
+        "213",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "230": {
+    "inputs": {
+      "filename_prefix": "2025-06-13/-2025-06-13_13-50-42-beru_custom_merge.safetensors-Flux",
+      "images": [
+        "208",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "271": {
+    "inputs": {
+      "enabled": true,
+      "swap_model": "inswapper_128.onnx",
+      "facedetection": "retinaface_resnet50",
+      "face_restore_model": "codeformer-v0.1.0.pth",
+      "face_restore_visibility": 1,
+      "codeformer_weight": 0.65,
+      "detect_gender_input": "female",
+      "detect_gender_source": "female",
+      "input_faces_index": "0",
+      "source_faces_index": "0",
+      "console_log_level": 1,
+      "input_image": [
+        "24",
+        0
+      ],
+      "source_image": [
+        "155",
+        0
+      ]
+    },
+    "class_type": "ReActorFaceSwap",
+    "_meta": {
+      "title": "ReActor 🌌 Fast Face Swap"
+    }
+  },
+  "272": {
+    "inputs": {
+      "unet_name": "flux1-dev-Q4_K_S.gguf"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Unet Loader (GGUF)"
+    }
+  },
+  "307": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "Prefer GPU"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "308": {
+    "inputs": {
+      "model_name": "GroundingDINO_SwinT_OGC (694MB)"
+    },
+    "class_type": "GroundingDinoModelLoader (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoModelLoader (segment anything)"
+    }
+  },
+  "314": {
+    "inputs": {
+      "prompt": "",
+      "threshold": 0.3,
+      "sam_model": [
+        "307",
+        0
+      ],
+      "grounding_dino_model": [
+        "308",
+        0
+      ],
+      "image": [
+        "208",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "315": {
+    "inputs": {
+      "prompt": "face, eyes, neck",
+      "threshold": 0.27,
+      "sam_model": [
+        "307",
+        0
+      ],
+      "grounding_dino_model": [
+        "308",
+        0
+      ],
+      "image": [
+        "208",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "316": {
+    "inputs": {
+      "mask": [
+        "314",
+        1
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "317": {
+    "inputs": {
+      "masks_a": [
+        "323",
+        0
+      ],
+      "masks_b": [
+        "315",
+        1
+      ]
+    },
+    "class_type": "Masks Add",
+    "_meta": {
+      "title": "Masks Add"
+    }
+  },
+  "318": {
+    "inputs": {
+      "masks_a": [
+        "317",
+        0
+      ],
+      "masks_b": [
+        "326",
+        0
+      ]
+    },
+    "class_type": "Masks Subtract",
+    "_meta": {
+      "title": "Masks Subtract"
+    }
+  },
+  "320": {
+    "inputs": {
+      "text": "text, watermark, deformed",
+      "clip": [
+        "6",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "321": {
+    "inputs": {
+      "prompt": "hair, chest",
+      "threshold": 0.24,
+      "sam_model": [
+        "307",
+        0
+      ],
+      "grounding_dino_model": [
+        "308",
+        0
+      ],
+      "image": [
+        "208",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "323": {
+    "inputs": {
+      "expand": 10,
+      "tapered_corners": true,
+      "mask": [
+        "321",
+        1
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "324": {
+    "inputs": {
+      "head": "fooocus_inpaint_head.pth",
+      "patch": "inpaint_v26.fooocus.patch"
+    },
+    "class_type": "INPAINT_LoadFooocusInpaint",
+    "_meta": {
+      "title": "Load Fooocus Inpaint"
+    }
+  },
+  "325": {
+    "inputs": {
+      "model": [
+        "6",
+        0
+      ],
+      "patch": [
+        "324",
+        0
+      ],
+      "latent": [
+        "332",
+        2
+      ]
+    },
+    "class_type": "INPAINT_ApplyFooocusInpaint",
+    "_meta": {
+      "title": "Apply Fooocus Inpaint"
+    }
+  },
+  "326": {
+    "inputs": {
+      "expand": 10,
+      "tapered_corners": true,
+      "mask": [
+        "333",
+        1
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "327": {
+    "inputs": {
+      "text": "rounded penis head, full penis, penis head, foreskin,",
+      "clip": [
+        "6",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "328": {
+    "inputs": {
+      "seed": 997952798584183,
+      "steps": 8,
+      "cfg": 1.5,
+      "sampler_name": "lcm",
+      "scheduler": "exponential",
+      "denoise": 0.45,
+      "model": [
+        "329",
+        0
+      ],
+      "positive": [
+        "332",
+        0
+      ],
+      "negative": [
+        "332",
+        1
+      ],
+      "latent_image": [
+        "332",
+        3
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "329": {
+    "inputs": {
+      "scale": 3.5,
+      "adaptive_scale": 0,
+      "unet_block": "output",
+      "unet_block_id": 0,
+      "sigma_start": -1,
+      "sigma_end": -1,
+      "rescale": 0,
+      "rescale_mode": "full",
+      "unet_block_list": "",
+      "model": [
+        "325",
+        0
+      ]
+    },
+    "class_type": "PerturbedAttention",
+    "_meta": {
+      "title": "magic"
+    }
+  },
+  "330": {
+    "inputs": {
+      "samples": [
+        "328",
+        0
+      ],
+      "vae": [
+        "6",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "332": {
+    "inputs": {
+      "positive": [
+        "327",
+        0
+      ],
+      "negative": [
+        "320",
+        0
+      ],
+      "vae": [
+        "6",
+        2
+      ],
+      "pixels": [
+        "208",
+        0
+      ],
+      "mask": [
+        "334",
+        0
+      ]
+    },
+    "class_type": "INPAINT_VAEEncodeInpaintConditioning",
+    "_meta": {
+      "title": "VAE Encode & Inpaint Conditioning"
+    }
+  },
+  "333": {
+    "inputs": {
+      "prompt": "chin,lips",
+      "threshold": 0.29,
+      "sam_model": [
+        "307",
+        0
+      ],
+      "grounding_dino_model": [
+        "308",
+        0
+      ],
+      "image": [
+        "208",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "334": {
+    "inputs": {
+      "masks_a": [
+        "316",
+        0
+      ],
+      "masks_b": [
+        "318",
+        0
+      ]
+    },
+    "class_type": "Masks Subtract",
+    "_meta": {
+      "title": "Masks Subtract"
+    }
+  },
+  "337": {
+    "inputs": {
+      "filename_prefix": "2025-06-13/-2025-06-13_13-50-42-beru_custom_merge.safetensors-Flux_Dfix",
+      "images": [
+        "330",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "349": {
+    "inputs": {
+      "switch_1": "On",
+      "lora_name_1": "FameGrid_Bold_SDXL_V1.safetensors",
+      "model_weight_1": 0.67,
+      "clip_weight_1": 1,
+      "switch_2": "On",
+      "lora_name_2": "hand5.5.safetensors",
+      "model_weight_2": 0.2,
+      "clip_weight_2": 1,
+      "switch_3": "On",
+      "lora_name_3": "ae.safetensors",
+      "model_weight_3": 0.15,
+      "clip_weight_3": 1
+    },
+    "class_type": "CR LoRA Stack",
+    "_meta": {
+      "title": "💊 CR LoRA Stack"
+    }
+  },
+  "350": {
+    "inputs": {
+      "model": [
+        "151",
+        0
+      ],
+      "clip": [
+        "6",
+        1
+      ],
+      "lora_stack": [
+        "349",
+        0
+      ]
+    },
+    "class_type": "CR Apply LoRA Stack",
+    "_meta": {
+      "title": "💊 CR Apply LoRA Stack"
+    }
+  },
+  "364": {
+    "inputs": {
+      "wildcard_text": " ((cjw woman)) completely nude, lying on her back on a pool lounger at the (pool party), legs spread as a man strokes his cock and delivers a dripping ((cumshot)) all over her stomach and tits, solo couple, one man, one woman, single penis, centered composition, photo realistic, SDXL, high quality, detailed anatomy, realistic lighting",
+      "populated_text": " ((cjw woman)) completely nude, lying on her back on a pool lounger at the (pool party), legs spread as a man strokes his cock and delivers a dripping ((cumshot)) all over her stomach and tits, solo couple, one man, one woman, single penis, centered composition, photo realistic, SDXL, high quality, detailed anatomy, realistic lighting",
+      "mode": "populate",
+      "seed": 518699652403742,
+      "Select to add Wildcard": "Select the Wildcard to add to the text"
+    },
+    "class_type": "ImpactWildcardProcessor",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "365": {
+    "inputs": {
+      "text": [
+        "364",
+        0
+      ],
+      "clip": [
+        "6",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "366": {
+    "inputs": {
+      "wildcard_text": "multiple people, (group sex:1.7), extra limbs, duplicates, mutated anatomy, disfigured, deformed, mutated hands, blurry, lowres, out of frame, cropped, unrealistic, bad composition, group sex, watermark",
+      "populated_text": "multiple people, (group sex:1.7), extra limbs, duplicates, mutated anatomy, disfigured, deformed, mutated hands, blurry, lowres, out of frame, cropped, unrealistic, bad composition, group sex, watermark",
+      "mode": "populate",
+      "seed": 301306428051780,
+      "Select to add Wildcard": "Select the Wildcard to add to the text"
+    },
+    "class_type": "ImpactWildcardProcessor",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "367": {
+    "inputs": {
+      "text": [
+        "366",
+        0
+      ],
+      "clip": [
+        "6",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  }
+}
