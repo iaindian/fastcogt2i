@@ -4,6 +4,7 @@ Production-grade headless ComfyUI installer (with CUDA-enabled PyTorch and plugi
 import os
 import sys
 import subprocess
+import platform
 import logging
 from pathlib import Path
 

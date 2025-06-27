@@ -9,3 +9,4 @@ __pycache__/
 test_inputs/
 scripts
 myenv
+/.venv-3.10/
