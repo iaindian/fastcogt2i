@@ -68,8 +68,9 @@ class FastCogt2i(
         )
     )
 ):
+    app_name = "fastcogt2i"
+    app_auth = "private"
     machine_type = "GPU"
-    local_python_modules = ["comfyrunbatch"]
     requirements = [
         "torch",
         "torchvision",
