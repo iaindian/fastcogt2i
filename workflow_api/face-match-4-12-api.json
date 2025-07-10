@@ -1159,8 +1159,8 @@
   },
   "366": {
     "inputs": {
-      "wildcard_text": "multiple people, (group sex:1.7), extra limbs, duplicates, mutated anatomy, disfigured, deformed, mutated hands, blurry, lowres, out of frame, cropped, unrealistic, bad composition, group sex, watermark",
-      "populated_text": "multiple people, (group sex:1.7), extra limbs, duplicates, mutated anatomy, disfigured, deformed, mutated hands, blurry, lowres, out of frame, cropped, unrealistic, bad composition, group sex, watermark",
+      "wildcard_text": " extra limbs, duplicates, mutated anatomy, disfigured, deformed, mutated hands, blurry, lowres, out of frame, cropped, unrealistic, bad composition, watermark",
+      "populated_text": " extra limbs, duplicates, mutated anatomy, disfigured, deformed, mutated hands, blurry, lowres, out of frame, cropped, unrealistic, bad composition, watermark",
       "mode": "populate",
       "seed": 301306428051780,
       "Select to add Wildcard": "Select the Wildcard to add to the text"
