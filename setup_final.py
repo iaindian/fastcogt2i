@@ -32,7 +32,8 @@ def run_command(cmd, cwd: Path = None, shell: bool = False, input_text: str = No
 
 # Detect OS
 def is_macos() -> bool:
-    return sys.platform == "darwin" or platform.system() == "Darwin"
+    return False
+    # return sys.platform == "darwin" or platform.system() == "Darwin"
 
 def install_torch_cuda(cuda_version: str = "cu118"):
     """
