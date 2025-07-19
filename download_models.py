@@ -152,6 +152,11 @@ MODELS = [
     "filename": "detailed_notrigger.safetensors",
     "subdir": "loras"
     },
+   {
+     "url": "https://huggingface.co/tianweiy/DMD2/resolve/main/dmd2_sdxl_4step_lora_fp16.safetensors",
+    "filename": "dmd2_sdxl_4step_lora_fp16.safetensors",
+    "subdir": "loras"
+    },
   {
      "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/ae.safetensors",
     "filename": "ae.safetensors",
@@ -165,8 +170,8 @@ MODELS = [
  
    
        {
-    "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/beru_custom_merge.safetensors",
-    "filename": "beru_custom_merge.safetensors",
+    "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/beru_custom_2.safetensors",
+    "filename": "beru_custom_2.safetensors",
     "subdir": "checkpoints"
   },
        {

@@ -33,7 +33,7 @@ from comfyrunbatch import (
     clear_and_interrupt
 )
 
-default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-13-api.json").resolve()
+default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-14-api.json").resolve()
 
 class Predictor(BasePredictor):
     def setup(self):
@@ -114,7 +114,7 @@ class Predictor(BasePredictor):
         image1: CogPath = Input(description="First input image"),
         image2: CogPath = Input(description="Second input image"),
         image3: CogPath = Input(description="Third input image"),
-        # bypass_reactor: bool = Input(default=False, description="Skip ReActor nodes"),
+        bypass_reactor: bool = Input(default=False, description="Skip faceswap "),
         # bypass_upscale_node: bool = Input(default=False, description="Skip upscaling/TTP nodes"),
         bypass_dfix_node: bool = Input(default=True, description="Skip Dfix nodes by default"),
         poll_interval: float = Input(default=1.0, description="Seconds between polls"),
@@ -200,8 +200,8 @@ class Predictor(BasePredictor):
                 strength=strength,
                 scheduler=scheduler,
             )
-            # if bypass_reactor:
-            #     wf = strip_reactor_nodes(wf)
+            if bypass_reactor:
+                wf = strip_reactor_nodes(wf)
             # if bypass_upscale_node:
             #     wf = bypass_upscale(wf)
             #     out_node = "230"
