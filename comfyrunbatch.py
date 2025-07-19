@@ -72,12 +72,14 @@ def inject_parameters(workflow, seed=None, guidance_scale=None, num_steps=None,
     return workflow
 
 
-def strip_reactor_nodes(workflow):
-    removed = [nid for nid, n in workflow.items()
-               if n.get('class_type', '').startswith('ReActor')]
-    for nid in removed:
-        del workflow[nid]
-    logging.info(f"Removed reactor nodes: {removed}")
+def strip_reactor_nodes(workflow, reactor_id="271"):
+    if reactor_id in workflow:
+        old = workflow[reactor_id]["inputs"].get("enabled")
+        workflow[reactor_id]["inputs"]["enabled"] = False
+        logging.info(f"Bypassed reactor node {reactor_id}")
+        logging.info(f"Reactor {reactor_id} enabled was {old}, now set to False")
+    else:
+        logging.warning(f"Reactor node {reactor_id} not found")
     return workflow
 
 
@@ -181,8 +183,8 @@ def download_outputs(images, host, out_dir):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--api-json",    required=False,
-                   default="workflow_api/face-match-4-13-api.json",
-                   help="Path to ComfyUI workflow JSON (defaults to ./workflow_api/face-match-4-13-api.json)")
+                   default="workflow_api/face-match-4-14-api.json",
+                   help="Path to ComfyUI workflow JSON (defaults to ./workflow_api/face-match-4-14-api.json)")
     p.add_argument("--prompt-file", required=True,
                    help="JSON array of {id,positive,negative} objects")
     p.add_argument("--input-dir",   default="input",

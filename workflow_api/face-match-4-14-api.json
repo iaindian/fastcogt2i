@@ -636,7 +636,7 @@
       "model_weight_1": 0.4,
       "clip_weight_1": 1,
       "switch_2": "On",
-      "lora_name_2": "hand 5.5.safetensors",
+      "lora_name_2": "hand5.5.safetensors",
       "model_weight_2": 0.2,
       "clip_weight_2": 1,
       "switch_3": "On",
