@@ -148,8 +148,8 @@ MODELS = [
    },
   # loras
   {
-     "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/FameGrid_Bold_SDXL_V1.safetensors",
-    "filename": "FameGrid_Bold_SDXL_V1.safetensors",
+     "url": "https://huggingface.co/jagat334433/beru_custom/blob/main/detailed_notrigger.safetensors",
+    "filename": "detailed_notrigger.safetensors",
     "subdir": "loras"
     },
   {
