@@ -92,7 +92,7 @@ build:
       - nvidia-nvtx-cu12
       - oauthlib
       - onnx
-      - onnxruntime
+#      - onnxruntime
       - onnxruntime-gpu
       - open_clip_torch
       - opencv-python
