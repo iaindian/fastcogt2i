@@ -183,8 +183,8 @@ def download_outputs(images, host, out_dir):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--api-json",    required=False,
-                   default="workflow_api/face-match-4-15-api.json",
-                   help="Path to ComfyUI workflow JSON (defaults to ./workflow_api/face-match-4-15-api.json)")
+                   default="workflow_api/face-match-4-16-api.json",
+                   help="Path to ComfyUI workflow JSON (defaults to ./workflow_api/face-match-4-16-api.json)")
     p.add_argument("--prompt-file", required=True,
                    help="JSON array of {id,positive,negative} objects")
     p.add_argument("--input-dir",   default="input",
