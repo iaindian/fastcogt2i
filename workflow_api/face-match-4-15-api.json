@@ -883,7 +883,7 @@
       "model_weight_2": 0.2,
       "clip_weight_2": 1,
       "switch_3": "On",
-      "lora_name_3": "asian.safetensors",
+      "lora_name_3": "ae.safetensors",
       "model_weight_3": 0.5,
       "clip_weight_3": 1
     },
