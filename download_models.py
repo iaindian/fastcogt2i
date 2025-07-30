@@ -167,6 +167,11 @@ MODELS = [
     "filename": "hand5.5.safetensors",
     "subdir": "loras"
     },
+    {
+    "url": "https://huggingface.co/jagat334433/beru_custom/resolve/main/Anal_Sex.safetensors",
+    "filename": "Anal_Sex.safetensors",
+    "subdir": "loras"
+  },
  
    
        {

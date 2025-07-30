@@ -30,10 +30,12 @@ from comfyrunbatch import (
     await_completion,
     download_outputs,
     bypass_dfix,
-    clear_and_interrupt
+    clear_and_interrupt,
+    remove_Image_WithoutDfix,
+    enable_anal_boost
 )
 
-default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-16-api.json").resolve()
+default_workflow_path = (Path(__file__).parent / "workflow_api/face-match-4-17-api.json").resolve()
 
 class Predictor(BasePredictor):
     def setup(self):
@@ -115,6 +117,7 @@ class Predictor(BasePredictor):
         image2: CogPath = Input(description="Second input image"),
         image3: CogPath = Input(description="Third input image"),
         bypass_reactor: bool = Input(default=False, description="Skip faceswap "),
+        boost_anal: bool = Input(default=False, description="Boost anal"),
         # bypass_upscale_node: bool = Input(default=False, description="Skip upscaling/TTP nodes"),
         bypass_dfix_node: bool = Input(default=True, description="Skip Dfix nodes by default"),
         poll_interval: float = Input(default=1.0, description="Seconds between polls"),
@@ -210,8 +213,13 @@ class Predictor(BasePredictor):
                 out_node = "230"
             else:
                 out_node = "230"
+                wf = remove_Image_WithoutDfix(wf)
+            if boost_anal:
+               wf = enable_anal_boost(wf) 
 
-            pid = queue_workflow(wf, host, [out_node])
+            # Uncomment this line if you are running it on comfyui
+            # pid = queue_workflow(wf, host, [out_node]) 
+            pid = queue_workflow(wf, host, [])
             imgs_info = await_completion(pid, host, poll_interval, timeout)
 
             dest = CogPath("ComfyUI/output") / run_id

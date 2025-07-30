@@ -82,6 +82,26 @@ def strip_reactor_nodes(workflow, reactor_id="271"):
         logging.warning(f"Reactor node {reactor_id} not found")
     return workflow
 
+def enable_anal_boost(workflow, anal_id="375"):
+    if anal_id in workflow:
+        old = workflow[anal_id]["inputs"].get("switch_2")
+        workflow[anal_id]["inputs"]["switch_2"] = "On"
+        logging.info(f"Enabled anal booster node {anal_id}")
+        logging.info(f"{anal_id} enabled was {old}, now set to On")
+    else:
+        logging.warning(f"node {anal_id} not found")
+    return workflow
+
+    
+def remove_Image_WithoutDfix(workflow: dict) -> dict:
+    """
+    Remove any nodes whose IDs are listed in the internal bypass_list, this method removes the output image by flux
+    """
+    bypass_list = ["230"]
+    # Create a new dict without those keys
+    return {nid: node for nid, node in workflow.items() if nid not in bypass_list}
+    
+
 
 def strip_ttp_nodes(workflow, cutoff_node="230"):
     """
@@ -183,8 +203,8 @@ def download_outputs(images, host, out_dir):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--api-json",    required=False,
-                   default="workflow_api/face-match-4-16-api.json",
-                   help="Path to ComfyUI workflow JSON (defaults to ./workflow_api/face-match-4-16-api.json)")
+                   default="workflow_api/face-match-4-17-api.json",
+                   help="Path to ComfyUI workflow JSON (defaults to ./workflow_api/face-match-4-17-api.json)")
     p.add_argument("--prompt-file", required=True,
                    help="JSON array of {id,positive,negative} objects")
     p.add_argument("--input-dir",   default="input",
