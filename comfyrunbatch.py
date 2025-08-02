@@ -44,7 +44,7 @@ def load_workflow(path):
 def inject_prompts_and_images(workflow, pos, neg, images):
     img_idx = 0
     if re.search(r'\banal\b', pos, re.IGNORECASE):
-        enable_anal_boost()
+        enable_anal_boost(workflow)
     for node_id, node in workflow.items():
         inputs = node.setdefault('inputs', {})
         if node_id == "364":
